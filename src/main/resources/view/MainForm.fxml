@@ -1,14 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.mailsender.controller.MainFormController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="635.0" prefWidth="488.0" style="-fx-background-color: #393646;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mailsender.controller.MainFormController">
+   <children>
+      <Label alignment="CENTER" layoutX="38.0" layoutY="12.0" prefHeight="35.0" prefWidth="186.0" text="Compose" textFill="#f4eee0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="78.0" prefHeight="21.0" prefWidth="86.0" text="From      : " textFill="#f4eee0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="121.0" prefHeight="21.0" prefWidth="86.0" text="To          : " textFill="#f4eee0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="165.0" prefHeight="21.0" prefWidth="86.0" text="Subject  :" textFill="#f4eee0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="23.0" layoutY="210.0" prefHeight="21.0" prefWidth="186.0" text="Compose Email" textFill="#f4eee0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtSenderMail" focusTraversable="false" layoutX="109.0" layoutY="75.0" onAction="#txtSenderMailOnAction" prefHeight="24.0" prefWidth="362.0" promptText="sendermail@example.com" style="-fx-background-color: #393646;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtReceiverMail" focusTraversable="false" layoutX="109.0" layoutY="118.0" onAction="#txtReceiverMailOnAction" prefHeight="24.0" prefWidth="362.0" promptText="receivermail@example.com" style="-fx-background-color: #393646;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtSubject" focusTraversable="false" layoutX="109.0" layoutY="161.0" onAction="#txtSubjectOnAction" prefHeight="24.0" prefWidth="362.0" promptText="Massege Subject" style="-fx-background-color: #393646;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextArea fx:id="txtMessage" focusTraversable="false" layoutX="24.0" layoutY="243.0" onDragDetected="#txtMessageOnAction" prefHeight="336.0" prefWidth="440.0" style="-fx-background-color: #393646;" text="# Java Mail Sender Application## DescriptionThis Java application demonstrates how to send emails programmatically using the Simple Mail Transfer Protocol (SMTP). It provides a straightforward way to send emails from a Java application using SMTP servers, making it a useful tool for integrating email sending capabilities into your projects.## Key Features- Send emails with text content.- Attach files (e.g., images, documents) to your emails.- Set email subject, recipient(s), sender, and other essential fields.- Compatible with any SMTP server, including popular email services like Gmail and Outlook." wrapText="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextArea>
+      <JFXButton layoutX="16.0" layoutY="13.0" onAction="#btnBackOnAction" prefHeight="35.0" prefWidth="20.0" text=".">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/arrow-back.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton layoutX="344.0" layoutY="13.0" onAction="#btnAttachmentOnAction" prefHeight="35.0" prefWidth="20.0" text=".">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/attach-file.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton layoutX="407.0" layoutY="13.0" onAction="#btnSendOnAction" prefHeight="35.0" prefWidth="20.0" text=".">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8-send-24.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label fx:id="lblAttachedFileLabel" layoutX="24.0" layoutY="596.0" prefHeight="21.0" prefWidth="129.0" text="Attached File : " textFill="#f4eee0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtAttachedFile" editable="false" focusTraversable="false" layoutX="145.0" layoutY="593.0" prefHeight="29.0" prefWidth="320.0" style="-fx-background-color: #393646;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+   </children>
 </AnchorPane>

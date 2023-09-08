@@ -12,8 +12,8 @@ public class AppInitializer extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         stage.setScene(new Scene(FXMLLoader
-                .load(getClass().getResource("/view/Form.fxml"))));
-        stage.setTitle("Language Translator");
+                .load(getClass().getResource("/view/MainForm.fxml"))));
+        stage.setTitle("Mail Sender Application");
         stage.show();
     }
 }
