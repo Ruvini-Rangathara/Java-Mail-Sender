@@ -37,4 +37,4 @@ build/
 ### Mac OS ###
 .DS_Store
 
-password.properties
+.main/resources/password.properties
