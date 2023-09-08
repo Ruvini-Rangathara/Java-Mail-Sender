@@ -2,7 +2,10 @@ package com.example.mailsender.controller;
 
 import com.example.mailsender.util.Config;
 import com.example.mailsender.util.SendMail;
+import com.jfoenix.controls.JFXButton;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -24,6 +27,7 @@ import java.util.ResourceBundle;
 
 public class MainFormController implements Initializable {
 
+    public JFXButton btnBack;
     @FXML
     private TextArea txtMessage;
     @FXML
@@ -42,6 +46,8 @@ public class MainFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        btnBack.setOnAction(event -> Platform.exit());
+
         lblAttachedFileLabel.setVisible(false);
         txtAttachedFile.setVisible(false);
 
@@ -83,11 +89,11 @@ public class MainFormController implements Initializable {
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choose File to Attach");
-        fileChooser.getExtensionFilters().addAll(
-                new ExtensionFilter("PDF Files", "*.pdf"),
-                new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif"),
-                new ExtensionFilter("All Files", "*.*")
-        );
+//        fileChooser.getExtensionFilters().addAll(
+//                new ExtensionFilter("PDF Files", "*.pdf"),
+//                new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif"),
+//                new ExtensionFilter("All Files", "*.*")
+//        );
 
 
         selectedFile = fileChooser.showOpenDialog(new Stage());
@@ -98,16 +104,9 @@ public class MainFormController implements Initializable {
         }
     }
 
-
-    @FXML
-    void btnBackOnAction(MouseEvent event) {
-
-    }
-
     @FXML
     void btnSendOnAction(ActionEvent event) throws IOException {
         // Get the email sender, recipient, subject, and message text from the text fields
-        String senderEmail = txtSenderMail.getText();
         String recipientEmail = txtReceiverMail.getText();
         String subject = txtSubject.getText();
         String messageText = txtMessage.getText();

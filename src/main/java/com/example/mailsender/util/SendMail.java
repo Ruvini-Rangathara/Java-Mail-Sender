@@ -68,7 +68,6 @@ public class SendMail extends Thread {
 
             // Set the recipient's email address
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail)); // Replace with the recipient's email
-
             // Set the email subject
             message.setSubject(subject);
 
