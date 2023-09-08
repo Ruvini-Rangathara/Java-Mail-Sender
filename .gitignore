@@ -37,4 +37,8 @@ build/
 ### Mac OS ###
 .DS_Store
 
+<<<<<<< HEAD
 .main/resources/password.properties
+=======
+src/main/resources/password.properties
+>>>>>>> cc43178d8994941fc683260c81298b552179b9e7

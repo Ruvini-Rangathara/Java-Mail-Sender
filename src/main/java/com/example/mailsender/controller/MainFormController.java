@@ -89,6 +89,7 @@ public class MainFormController implements Initializable {
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choose File to Attach");
+<<<<<<< HEAD
 //        fileChooser.getExtensionFilters().addAll(
 //                new ExtensionFilter("PDF Files", "*.pdf"),
 //                new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif"),
@@ -96,11 +97,20 @@ public class MainFormController implements Initializable {
 //        );
 
 
+=======
+        fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif"));
+>>>>>>> cc43178d8994941fc683260c81298b552179b9e7
         selectedFile = fileChooser.showOpenDialog(new Stage());
 
         if (selectedFile != null) {
-            txtAttachedFile.setText(selectedFile.getName());
+            String fileName = selectedFile.getName();
+            String fileExtension = fileName.substring(fileName.lastIndexOf(".") + 1);
 
+            if ("png".equalsIgnoreCase(fileExtension) || "jpg".equalsIgnoreCase(fileExtension) || "jpeg".equalsIgnoreCase(fileExtension) || "gif".equalsIgnoreCase(fileExtension)) {
+                txtAttachedFile.setText(selectedFile.getName());
+            } else {
+                System.out.println("Selected file is not an image.");
+            }
         }
     }
 
