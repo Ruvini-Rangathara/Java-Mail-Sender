@@ -83,18 +83,18 @@ public class MainFormController implements Initializable {
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choose File to Attach");
-        fileChooser.getExtensionFilters().addAll(
-                new ExtensionFilter("PDF Files", "*.pdf"),
-                new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif"),
-                new ExtensionFilter("All Files", "*.*")
-        );
-
-
+        fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif"));
         selectedFile = fileChooser.showOpenDialog(new Stage());
 
         if (selectedFile != null) {
-            txtAttachedFile.setText(selectedFile.getName());
+            String fileName = selectedFile.getName();
+            String fileExtension = fileName.substring(fileName.lastIndexOf(".") + 1);
 
+            if ("png".equalsIgnoreCase(fileExtension) || "jpg".equalsIgnoreCase(fileExtension) || "jpeg".equalsIgnoreCase(fileExtension) || "gif".equalsIgnoreCase(fileExtension)) {
+                txtAttachedFile.setText(selectedFile.getName());
+            } else {
+                System.out.println("Selected file is not an image.");
+            }
         }
     }
 
